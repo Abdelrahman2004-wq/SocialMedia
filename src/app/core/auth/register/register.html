@@ -1,0 +1,538 @@
+<h1 class="text-sky-600 text-center my-4">Route Register Page</h1>
+<!--------------------------------------------Register Form------------------------------------------->
+<form [formGroup]="registerForm" (ngSubmit)="registerFormSubmit()">
+  <div class="w-1/2 mx-auto my-3">
+    <!------------------------------------------Name-------------------------------------------------->
+    <div>
+      <label for="website-admin" class="block mb-2.5 text-sm font-medium text-heading">Name</label>
+      <div class="flex shadow-xs rounded-base">
+        <span
+          class="inline-flex items-center px-3 text-sm text-body bg-neutral-tertiary border rounded-e-0 border-default-medium border-e-0 rounded-s-base"
+        >
+          <svg
+            class="w-4 h-4 text-body"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
+        </span>
+        <input
+          formControlName="name"
+          type="text"
+          id="website-admin"
+          class="rounded-none rounded-e-base block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand placeholder:text-body"
+          placeholder="Enter Name"
+        />
+      </div>
+    </div>
+
+    <!----------------------------------------Name Validation----------------------------------------->
+    @if (registerForm.get('name')?.invalid && registerForm.get('name')?.touched) {
+      <div class="flex p-4 mb-4 text-sm text-red-700 rounded-base bg-red-200" role="alert">
+        <svg
+          class="w-4 h-4 me-2 shrink-0"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+        <span class="sr-only">Success</span>
+        <div>
+          <span class="font-medium">Warning:</span>
+          <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+            @if (registerForm.get('name')?.hasError('required')) {
+              <li>Name is Required</li>
+            }
+            @if (registerForm.get('name')?.hasError('minlength')) {
+              <li>Name Must be at Least 3 Characters</li>
+            }
+            @if (registerForm.get('name')?.hasError('maxlength')) {
+              <li>Maximum Characters are 20</li>
+            }
+            @if (registerForm.get('name')?.hasError('pattern')) {
+              <li>The Pattern is Alphabet Only</li>
+            }
+          </ul>
+        </div>
+      </div>
+    }
+
+    <!-----------------------------------------UserName----------------------------------------------->
+    <div>
+      <label for="website-admin" class="block mb-2.5 text-sm font-medium text-heading"
+        >Username</label
+      >
+      <div class="flex shadow-xs rounded-base">
+        <span
+          class="inline-flex items-center px-3 text-sm text-body bg-neutral-tertiary border rounded-e-0 border-default-medium border-e-0 rounded-s-base"
+        >
+          <svg
+            class="w-4 h-4 text-body"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
+        </span>
+        <input
+          formControlName="username"
+          type="text"
+          id="website-admin"
+          class="rounded-none rounded-e-base block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand placeholder:text-body"
+          placeholder="Enter Username"
+        />
+      </div>
+    </div>
+
+    <!----------------------------------------UserName Validation------------------------------------->
+    @if (registerForm.get('username')?.invalid && registerForm.get('username')?.touched) {
+      <div class="flex p-4 mb-4 text-sm text-red-700 rounded-base bg-red-200" role="alert">
+        <svg
+          class="w-4 h-4 me-2 shrink-0"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+        <span class="sr-only">Success</span>
+        <div>
+          <span class="font-medium">Warning:</span>
+          <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+            @if (registerForm.get('username')?.hasError('minlength')) {
+              <li>Name Must be at Least 5 Characters</li>
+            }
+            @if (registerForm.get('username')?.hasError('maxlength')) {
+              <li>Maximum Characters are 20</li>
+            }
+          </ul>
+        </div>
+      </div>
+    }
+
+    <!-----------------------------------------Email-------------------------------------------------->
+    <div class>
+      <label for="website-admin" class="block mb-2.5 text-sm font-medium text-heading">Email</label>
+      <div class="flex shadow-xs rounded-base">
+        <span
+          class="inline-flex items-center px-3 text-sm text-body bg-neutral-tertiary border rounded-e-0 border-default-medium border-e-0 rounded-s-base"
+        >
+          <svg
+            class="w-4 h-4 text-body"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
+        </span>
+        <input
+          formControlName="email"
+          type="text"
+          id="website-admin"
+          class="rounded-none rounded-e-base block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand placeholder:text-body"
+          placeholder="Enter Email"
+        />
+      </div>
+    </div>
+
+    <!----------------------------------------Email Validation---------------------------------------->
+    @if (registerForm.get('email')?.invalid && registerForm.get('email')?.touched) {
+      <div class="flex p-4 mb-4 text-sm text-red-700 rounded-base bg-red-200" role="alert">
+        <svg
+          class="w-4 h-4 me-2 shrink-0"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+        <span class="sr-only">Success</span>
+        <div>
+          <span class="font-medium">Warning:</span>
+          <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+            @if (registerForm.get('email')?.hasError('required')) {
+              <li>Email is Required</li>
+            }
+            @if (registerForm.get('email')?.hasError('email')) {
+              <li>Enter Vaild Email</li>
+            }
+          </ul>
+        </div>
+      </div>
+    }
+    <!----------------------------------------Gender-------------------------------------------------->
+    <div>
+      <div>
+        <label for="gender" class="block mb-2.5 text-sm font-medium text-heading">Gender</label>
+        <select
+          formControlName="gender"
+          id="gender"
+          class="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body"
+        >
+          <option selected>Select your Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+    </div>
+
+    <!-------------------------------------Gender Validation------------------------------------------>
+    @if (registerForm.get('gender')?.invalid && registerForm.get('gender')?.touched) {
+      <div class="flex p-4 mb-4 text-sm text-red-700 rounded-base bg-red-200" role="alert">
+        <svg
+          class="w-4 h-4 me-2 shrink-0"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+        <span class="sr-only">Success</span>
+        <div>
+          <span class="font-medium">Warning:</span>
+          <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+            @if (registerForm.get('gender')?.hasError('required')) {
+              <li>Gender is Required</li>
+            }
+            @if (registerForm.get('gender')?.hasError('pattern')) {
+              <li>Enter Vaild Gender</li>
+            }
+          </ul>
+        </div>
+      </div>
+    }
+  <!---------------------------------------Date of Birth-------------------------------------------->
+<!---------------------------------------Date of Birth-------------------------------------------->
+<div>
+  <label for="datepicker-autohide" class="block mb-2.5 text-sm font-medium text-heading">Date of Birth</label>
+
+  <div class="relative max-w-sm">
+    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+      <svg
+        class="w-4 h-4 text-body"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"
+        />
+      </svg>
+    </div>
+    <input
+      #dobPicker
+      formControlName="dateOfBirth"
+      id="datepicker-autohide"
+      type="text"
+      class="block w-full ps-9 pe-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body"
+      placeholder="Select date"
+    />
+  </div>
+</div>
+
+
+
+<!-------------------------------------Date of Birth Validation----------------------------------->
+@if (registerForm.get('dateOfBirth')?.invalid && registerForm.get('dateOfBirth')?.dirty) {
+  <div class="flex p-4 mb-4 text-sm text-red-700 rounded-base bg-red-200" role="alert">
+    <svg
+      class="w-4 h-4 me-2 shrink-0"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+      />
+    </svg>
+    <span class="sr-only">Warning</span>
+    <div>
+      <span class="font-medium">Warning:</span>
+      <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+        @if (registerForm.get('dateOfBirth')?.hasError('required')) {
+          <li>Date of Birth is Required</li>
+        }
+      </ul>
+    </div>
+  </div>
+}
+
+    <!---------------------------------------Password------------------------------------------------->
+    <div>
+      <label for="website-admin" class="block mb-2.5 text-sm font-medium text-heading"
+        >Password</label
+      >
+      <div class="flex shadow-xs rounded-base relative">
+        <span
+          class="inline-flex items-center px-3 text-sm text-body bg-neutral-tertiary border rounded-e-0 border-default-medium border-e-0 rounded-s-base"
+        >
+          <svg
+            class="w-4 h-4 text-body"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
+        </span>
+        <input
+          #inputPassword
+          formControlName="password"
+          type="password"
+          id="website-admin"
+          class="rounded-none rounded-e-base block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand placeholder:text-body"
+          placeholder="Enter Password"
+        />
+        @if (inputPassword.type == 'text') {
+          <div class="absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer">
+            <i (click)="showPassword(inputPassword)" class="fa-solid fa-eye"></i>
+          </div>
+        }
+
+        @if (inputPassword.type == 'password') {
+          <div class="absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer">
+            <i (click)="showPassword(inputPassword)" class="fa-solid fa-eye-slash"></i>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!---------------------------------------Password Validation-------------------------------------->
+    @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+      <div class="flex p-4 mb-4 text-sm text-red-700 rounded-base bg-red-200" role="alert">
+        <svg
+          class="w-4 h-4 me-2 shrink-0"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+        <span class="sr-only">Success</span>
+        <div>
+          <span class="font-medium">Warning:</span>
+          <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+            @if (registerForm.get('password')?.hasError('required')) {
+              <li>password is Required</li>
+            }
+            @if (registerForm.get('password')?.hasError('pattern')) {
+              <li>
+                Enter Vaild password must 8 Characters 1 UpperCase 1 LowerCase at least 2 Numbers
+                and Special Characters
+              </li>
+            }
+          </ul>
+        </div>
+      </div>
+    }
+
+    <!---------------------------------------RePassword----------------------------------------------->
+    <div>
+      <label for="website-admin" class="block mb-2.5 text-sm font-medium text-heading"
+        >RePassword</label
+      >
+      <div class="flex shadow-xs rounded-base">
+        <span
+          class="inline-flex items-center px-3 text-sm text-body bg-neutral-tertiary border rounded-e-0 border-default-medium border-e-0 rounded-s-base"
+        >
+          <svg
+            class="w-4 h-4 text-body"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
+        </span>
+        <input
+          formControlName="rePassword"
+          type="text"
+          id="website-admin"
+          class="rounded-none rounded-e-base block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand placeholder:text-body"
+          placeholder="Enter RePassword"
+        />
+      </div>
+    </div>
+
+    <!---------------------------------------RePassword Validation----------------------------------->
+    @if (registerForm.get('rePassword')?.invalid && registerForm.get('rePassword')?.touched) {
+      <div class="flex p-4 mb-4 text-sm text-red-700 rounded-base bg-red-200" role="alert">
+        <svg
+          class="w-4 h-4 me-2 shrink-0"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+        <span class="sr-only">Success</span>
+        <div>
+          <span class="font-medium">Warning:</span>
+          <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+            @if (registerForm.get('rePassword')?.hasError('required')) {
+              <li>RePassword is Required</li>
+            }
+            @if (registerForm.get('rePassword')?.hasError('mismatch')) {
+              <li>Confirm RePassword</li>
+            }
+          </ul>
+        </div>
+      </div>
+    }
+    <!----------------------------------------Register Error------------------------------------------>
+    @if (registerErrorMessage()) {
+      <div class="flex p-4 mb-4 text-sm text-red-700 rounded-base bg-red-200" role="alert">
+        <svg
+          class="w-4 h-4 me-2 shrink-0"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+        <span class="sr-only">Success</span>
+        <div>
+          {{ registerErrorMessage() }}
+        </div>
+      </div>
+    }
+    <!----------------------------------------Submit-------------------------------------------------->
+    <button
+      [disabled]="registerForm.invalid"
+      type="submit"
+      class="bg-sky-600 disabled:bg-sky-200 text-white disabled:cursor-not-allowed p-2 rounded-2xl m-3"
+    >
+      Sing Up
+      @if (isLoading()) {
+        <i class="fa-solid fa-spinner fa-spin"></i>
+      }
+    </button>
+  </div>
+</form>
